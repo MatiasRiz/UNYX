@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login UNYX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../registro/styles.css">
+</head>
+<body>
+  <div class="background-lines"></div>
+  <div class="container">
+    <div class="form-box">
+      <div class="logo-container">
+        <img src="../img/Logo.png" alt="Logo UNYX" class="logo-unyx">
+      </div>
+      <h1>Iniciar sesión en <span class="gold">UNYX</span></h1>
+      <p>Accede a tu cuenta o <a href="../registro/registro.html" class="gold">regístrate</a></p>
+      <form id="loginForm" autocomplete="off">
+        <div class="input-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required minlength="6">
+        </div>
+        <button type="submit" class="btn">Iniciar sesión</button>
+      </form>
+    </div>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>
