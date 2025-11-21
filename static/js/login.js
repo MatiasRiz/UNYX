@@ -13,14 +13,5 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   alert("Bienvenido a UNYX");
 
   // Redirige al feed
-  window.location.href = "../feed/index.html";
+  window.location.href = "/feed";
 });
-
-// Manejo del enlace "regístrate"
-const linkRegistro = document.querySelector('a[href*="registro"]');
-if (linkRegistro) {
-  linkRegistro.addEventListener("click", function (e) {
-    e.preventDefault();
-    window.location.href = "../registro/registro.html";
-  });
-}

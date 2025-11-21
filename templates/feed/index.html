@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNYX - Inicio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css') }}">
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="unyx-header">
+    <div class="unyx-logo">
+      <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="UNYX Logo">
+    </div>
+
+    <nav class="unyx-nav">
+      <a href="{{ url_for('feed') }}" class="nav-link">Inicio</a>
+      <a href="#" class="nav-link">Explorar</a>
+      <a href="#" class="nav-link">Mensajes</a>
+      <a href="#" class="nav-link">Notificaciones</a>
+      <a href="{{ url_for('profile') }}" class="nav-link">Perfil</a>
+    </nav>
+  </header>
+
+
+  <div class="container">
+
+    <!-- Panel izquierdo (antes derecho) -->
+    <aside class="left-panel">
+      <div class="suggestions">
+        <h3>Sugerencias para ti</h3>
+        <ul>
+          <li><img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Usuario 1"> Usuario 1</li>
+          <li><img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2"> Usuario 2</li>
+          <li><img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="Usuario 3"> Usuario 3</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Contenido central -->
+    <main class="main-feed">
+
+      <!-- Barra de búsqueda -->
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar usuarios...">
+      </div>
+
+      <!-- Feed de publicaciones -->
+      <div class="feed">
+        <div class="post">
+          <div class="post-header">
+            <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Usuario 1" class="post-profile">
+            <span class="post-username">Usuario 1</span>
+          </div>
+          <div class="post-content">
+            <img src="{{ url_for('static', filename='img/publicacion1.jpg') }}" alt="Publicación 1">
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2" class="post-profile">
+            <span class="post-username">Usuario 2</span>
+          </div>
+          <div class="post-content">
+            <p>Texto o imagen de la publicación...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Historias (ahora abajo) -->
+      <div class="stories-bar">
+        <div class="story">
+          <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Usuario 1">
+        </div>
+        <div class="story">
+          <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2">
+        </div>
+        <div class="story">
+          <img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="Usuario 3">
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,29 +1,26 @@
-from flask import Flask, send_from_directory
+from flask import Flask, render_template
 
-app = Flask(__name__, static_folder='.', template_folder='.')
+app = Flask(__name__)
 
 
 @app.route('/')
 def home():
-    return send_from_directory('frontend', 'login.html')
-
-
-
-@app.route('/<path:filename>')
-def serve_any_file(filename):
-    return send_from_directory('.', filename)
-
-
-
-@app.route('/feed')
-def feed():
-    return send_from_directory('feed', 'index.html')
-
+    return render_template('auth/login.html')
 
 
 @app.route('/registro')
 def registro():
-    return send_from_directory('registro', 'registro.html')
+    return render_template('auth/registro.html')
+
+
+@app.route('/feed')
+def feed():
+    return render_template('feed/index.html')
+
+
+@app.route('/profile')
+def profile():
+    return render_template('profile/profile.html')
 
 
 if __name__ == '__main__':

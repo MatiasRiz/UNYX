@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - UNYX</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- NAV (Reutilizado del Feed) -->
+    <header class="unyx-header">
+        <div class="unyx-logo">
+            <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="UNYX Logo">
+        </div>
+        <nav class="unyx-nav">
+            <a href="{{ url_for('feed') }}" class="nav-link">Inicio</a>
+            <a href="#" class="nav-link">Explorar</a>
+            <a href="#" class="nav-link">Mensajes</a>
+            <a href="#" class="nav-link">Notificaciones</a>
+            <a href="{{ url_for('profile') }}" class="nav-link active">Perfil</a>
+        </nav>
+    </header>
+
+    <div class="container profile-container">
+        <!-- Cabecera del Perfil -->
+        <div class="profile-header">
+            <div class="cover-photo">
+                <!-- Foto de portada (placeholder) -->
+            </div>
+            <div class="profile-info-bar">
+                <div class="avatar-container">
+                    <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Mi Avatar"
+                        class="profile-avatar">
+                </div>
+                <div class="profile-actions">
+                    <button class="btn-edit-profile">Editar perfil</button>
+                    <button class="btn-settings">⚙️</button>
+                </div>
+            </div>
+            <div class="profile-bio-section">
+                <h1 class="profile-name">Usuario Demo <span class="verified-badge">✔</span></h1>
+                <p class="profile-handle">@usuario_demo</p>
+                <p class="profile-bio">Creador de contenido digital. Amante del arte y la tecnología. 🎨✨ #UNYX</p>
+                <div class="profile-stats">
+                    <span><strong>120</strong> Publicaciones</span>
+                    <span><strong>1.5k</strong> Seguidores</span>
+                    <span><strong>300</strong> Seguidos</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grilla de Contenido -->
+        <div class="profile-content">
+            <div class="content-tabs">
+                <button class="tab active">Publicaciones</button>
+                <button class="tab">Videos</button>
+                <button class="tab">Guardados</button>
+            </div>
+
+            <div class="posts-grid">
+                <!-- Placeholders de posts -->
+                <div class="grid-item"><img src="{{ url_for('static', filename='img/publicacion1.jpg') }}" alt="Post 1">
+                </div>
+                <div class="grid-item placeholder"></div>
+                <div class="grid-item placeholder"></div>
+                <div class="grid-item placeholder"></div>
+                <div class="grid-item placeholder"></div>
+                <div class="grid-item placeholder"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,48 +1,82 @@
-# UNYX - Red Social (Prototipo)
+# UNYX - Red Social Premium (Prototipo)
 
-Este proyecto es un prototipo de una red social llamada **UNYX**, diseñada para ser una plataforma segura y ética para mayores de 21 años.
+**UNYX** es un prototipo de red social exclusiva, diseñada con una estética **Hyper-Premium** y enfocada en una experiencia de usuario segura y ética para mayores de 21 años.
 
-## Estructura del Proyecto
+## 🚀 Estado Actual del Proyecto
 
-El proyecto se organiza de la siguiente manera:
+El proyecto ha evolucionado de una estructura estática a una aplicación web dinámica basada en **Flask (Python)**, con un rediseño visual completo.
 
-### Archivos en la Raíz
-- **`registro.html`**: Página de registro de usuarios. Incluye:
-  - Formulario de registro (Nombre, Apellido, Fecha de Nacimiento, DNI, Email, Contraseña).
-  - Validación de edad (mínimo 21 años).
-  - Modal de "Términos y Condiciones".
-- **`script.js`**: Archivo principal de JavaScript. Maneja:
-  - Validación del formulario de registro.
-  - Lógica del modal de términos y condiciones.
-  - Funcionalidad del visor de historias (Stories) con barra de progreso y navegación.
-- **`styles.css`**: Estilos específicos para la página de registro (`registro.html`), incluyendo el diseño del formulario y el modal.
+### ✨ Novedades (Versión Actual)
+*   **Estética Hyper-Premium**: Implementación de un diseño "Glassmorphism" avanzado con paleta de colores Negro Profundo (`#000000`) y Oro (`#D4AF37`). Incluye fondos animados, efectos de brillo (glow) y tipografía moderna (`Outfit`).
+*   **Estructura Flask**: Reorganización completa del código siguiendo el patrón MVC de Flask.
+*   **Navegación Fluida**: Sistema de rutas optimizado para navegación sin recargas perceptibles.
+*   **Nueva Página de Perfil**: Diseño completo del perfil de usuario con cabecera inmersiva, estadísticas y grilla de contenido.
 
-### Directorios
-- **`feed/`**: Contiene la página principal de la red social (el "feed").
-  - **`index.html`**: Estructura del feed de noticias, barra de búsqueda, sugerencias de usuarios y barra de historias.
-  - **`styles.css`**: Estilos específicos para el feed, incluyendo el diseño de paneles (izquierdo/derecho), publicaciones y la barra de historias.
-- **`img/`**: Carpeta de recursos gráficos (imágenes de perfil, logo, publicaciones).
+---
 
-## Funcionalidades Principales
+## 📂 Estructura del Proyecto
 
-### 1. Registro de Usuarios
-- Validación estricta de edad (mayores de 21 años).
-- Verificación de coincidencia de contraseñas.
-- Checkbox obligatorio de aceptación de términos.
+La estructura de carpetas se ha estandarizado para Flask:
 
-### 2. Feed de Noticias
-- Diseño de tres columnas (Panel Sugerencias, Feed Central, Panel de Navegación).
-- Barra de búsqueda de usuarios.
-- Visualización de publicaciones con cabecera (foto y nombre) y contenido.
+```
+UNYX/
+├── app.py                # Aplicación principal Flask (Rutas y configuración)
+├── static/               # Archivos estáticos (CSS, JS, Imágenes)
+│   ├── css/
+│   │   ├── auth.css      # Estilos para Login y Registro (Hyper-Premium)
+│   │   ├── feed.css      # Estilos para el Feed Principal
+│   │   └── profile.css   # Estilos para el Perfil de Usuario
+│   ├── js/
+│   │   ├── login.js      # Lógica de inicio de sesión
+│   │   └── registro.js   # Lógica de registro y validaciones
+│   └── img/              # Recursos gráficos (Logos, avatares, iconos)
+├── templates/            # Plantillas HTML (Jinja2)
+│   ├── auth/
+│   │   ├── login.html    # Página de Inicio de Sesión
+│   │   └── registro.html # Página de Registro
+│   ├── feed/
+│   │   └── index.html    # Feed Principal (Home)
+│   └── profile/
+│   │   └── profile.html  # Perfil de Usuario
+└── README.md             # Documentación del proyecto
+```
 
-### 3. Historias (Stories)
-- Barra de historias en la parte inferior del feed (según `feed/index.html`) o lógica de visor en pantalla completa (según `script.js`).
-- El `script.js` contiene una lógica avanzada para un visor de historias tipo "carrusel" con:
-  - Avance automático (barra de progreso).
-  - Navegación manual (clic izquierda/derecha).
-  - Pausa al mantener presionado.
+---
 
-## Tecnologías
-- **HTML5**: Estructura semántica.
-- **CSS3**: Diseño responsivo, animaciones (shimmer, fade, slide), y uso de variables de color (Dorado/Negro).
-- **JavaScript (Vanilla)**: Lógica de interacción sin dependencias externas.
+## 🛠️ Tecnologías Utilizadas
+
+*   **Backend**: Python, Flask.
+*   **Frontend**: HTML5, CSS3 (Variables, Flexbox, Grid, Animaciones CSS), JavaScript (Vanilla).
+*   **Diseño**: Estilo "Hyper-Premium" personalizado, Fuentes de Google Fonts (`Outfit`, `Montserrat`).
+
+---
+
+## 📋 Funcionalidades Implementadas
+
+### 1. Autenticación (Auth)
+*   **Login y Registro**: Interfaces con diseño de alto impacto visual.
+*   **Validaciones**: Verificación de edad (+21), coincidencia de contraseñas y campos obligatorios.
+*   **Feedback Visual**: Animaciones de entrada, efectos hover metálicos y modales estilizados.
+
+### 2. Feed Principal
+*   **Layout Moderno**: Diseño de 3 columnas (Navegación, Feed Central, Sugerencias).
+*   **Barra de Historias**: Carrusel de historias con efectos de brillo dorado.
+*   **Publicaciones**: Tarjetas de contenido con diseño flotante y sombras suaves.
+
+### 3. Perfil de Usuario
+*   **Cabecera Inmersiva**: Foto de portada y avatar con bordes dorados.
+*   **Estadísticas**: Contadores de seguidores, seguidos y publicaciones.
+*   **Grilla de Contenido**: Pestañas de navegación (Publicaciones, Videos, Guardados) y grilla responsiva.
+
+---
+
+## 🔜 Próximos Pasos (Roadmap)
+
+1.  **Base de Datos**: Configuración de SQLAlchemy y diseño del modelo de usuario.
+2.  **Backend de Registro**: Implementar la lógica real de creación de usuarios y hash de contraseñas.
+3.  **Sesiones**: Manejo de sesiones de usuario persistentes.
+4.  **Interactividad**: Dar funcionalidad real a los botones de "Seguir", "Like" y "Comentar".
+
+---
+
+*Desarrollado por MatiasRiz - 2025*
