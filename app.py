@@ -23,6 +23,15 @@ def profile():
     return render_template('profile/profile.html')
 
 
+@app.route('/logout')
+def logout():
+    # Aquí iría la lógica de cerrar sesión (session.clear())
+    return render_template('auth/login.html')
+
+
+
+
+
 if __name__ == '__main__':
     print("UNYX corriendo en http://127.0.0.1:5500/")
     app.run(host='127.0.0.1', port=5500, debug=True)

@@ -7,54 +7,84 @@
     <title>Mi Perfil - UNYX</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- NAV (Reutilizado del Feed) -->
     <header class="unyx-header">
         <div class="unyx-logo">
             <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="UNYX Logo">
         </div>
-        <nav class="unyx-nav">
-            <a href="{{ url_for('feed') }}" class="nav-link">Inicio</a>
-            <a href="#" class="nav-link">Explorar</a>
-            <a href="#" class="nav-link">Mensajes</a>
-            <a href="#" class="nav-link">Notificaciones</a>
-            <a href="{{ url_for('profile') }}" class="nav-link active">Perfil</a>
-        </nav>
     </header>
 
-    <div class="container profile-container">
-        <!-- Cabecera del Perfil -->
-        <div class="profile-header">
-            <div class="cover-photo">
-                <!-- Foto de portada (placeholder) -->
-            </div>
-            <div class="profile-info-bar">
-                <div class="avatar-container">
-                    <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Mi Avatar"
-                        class="profile-avatar">
-                </div>
-                <div class="profile-actions">
-                    <button class="btn-edit-profile">Editar perfil</button>
-                    <button class="btn-settings">⚙️</button>
-                </div>
-            </div>
-            <div class="profile-bio-section">
-                <h1 class="profile-name">Usuario Demo <span class="verified-badge">✔</span></h1>
-                <p class="profile-handle">@usuario_demo</p>
-                <p class="profile-bio">Creador de contenido digital. Amante del arte y la tecnología. 🎨✨ #UNYX</p>
-                <div class="profile-stats">
-                    <span><strong>120</strong> Publicaciones</span>
-                    <span><strong>1.5k</strong> Seguidores</span>
-                    <span><strong>300</strong> Seguidos</span>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <aside class="left-panel">
+            <nav class="side-nav">
+                <a href="{{ url_for('feed') }}" class="nav-item">
+                    <span class="icon">🏠</span> Inicio
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔍</span> Explorar
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">📩</span> Mensajes
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔔</span> Notificaciones
+                </a>
+                <a href="{{ url_for('profile') }}" class="nav-item active">
+                    <span class="icon">👤</span> Perfil
+                </a>
+                <a href="{{ url_for('logout') }}" class="nav-item logout-btn">
+                    <span class="icon">🚪</span> Cerrar Sesión
+                </a>
+            </nav>
 
-        <!-- Grilla de Contenido -->
-        <div class="profile-content">
+            <div class="mini-profile-card">
+                <div class="mini-profile-info">
+                    <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Tu Perfil">
+                    <div class="texts">
+                        <strong>MatiasRiz</strong>
+                        <span>@matiasriz</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-feed profile-main">
+            <div class="profile-header">
+                <div class="cover-photo" id="coverPhoto">
+                    <div class="cover-photo-overlay">
+                        <label for="cover-upload" class="btn-change-cover">
+                            <span class="icon">📷</span> Cambiar portada
+                        </label>
+                        <input type="file" id="cover-upload" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="profile-info-bar">
+                    <div class="avatar-container">
+                        <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Mi Avatar"
+                            class="profile-avatar">
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn-edit-profile">Editar perfil</button>
+                        <button class="btn-settings">⚙️</button>
+                    </div>
+                </div>
+
+                <div class="profile-bio-section">
+                    <h1 class="profile-name">Usuario Demo <span class="verified-badge">✔</span></h1>
+                    <p class="profile-handle">@usuario_demo</p>
+                    <p class="profile-bio">Creador de contenido digital. Amante del arte y la tecnología. 🎨✨ #UNYX</p>
+
+                    <div class="profile-stats">
+                        <span><strong>120</strong> Publicaciones</span>
+                        <span><strong>1.5k</strong> Seguidores</span>
+                        <span><strong>300</strong> Seguidos</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="content-tabs">
                 <button class="tab active">Publicaciones</button>
                 <button class="tab">Videos</button>
@@ -62,8 +92,8 @@
             </div>
 
             <div class="posts-grid">
-                <!-- Placeholders de posts -->
-                <div class="grid-item"><img src="{{ url_for('static', filename='img/publicacion1.jpg') }}" alt="Post 1">
+                <div class="grid-item">
+                    <img src="{{ url_for('static', filename='img/publicacion1.jpg') }}" alt="Post 1">
                 </div>
                 <div class="grid-item placeholder"></div>
                 <div class="grid-item placeholder"></div>
@@ -71,8 +101,59 @@
                 <div class="grid-item placeholder"></div>
                 <div class="grid-item placeholder"></div>
             </div>
-        </div>
+        </main>
+
+        <aside class="right-panel">
+            <div class="suggestions">
+                <h3>Sugerencias para ti</h3>
+                <ul>
+                    <li>
+                        <div class="sugg-user">
+                            <img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="Usuario 3">
+                            <div>
+                                <strong>Usuario 3</strong>
+                                <small>Nuevo en UNYX</small>
+                            </div>
+                        </div>
+                        <button class="follow-btn">Seguir</button>
+                    </li>
+                    <li>
+                        <div class="sugg-user">
+                            <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2">
+                            <div>
+                                <strong>Usuario 2</strong>
+                                <small>Te sigue</small>
+                            </div>
+                        </div>
+                        <button class="follow-btn">Seguir</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Cookies</a>
+                <span>© 2025 UNYX</span>
+            </div>
+        </aside>
     </div>
+
+    <script>
+        // Script para cambiar la foto de portada
+        document.getElementById('cover-upload').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    document.getElementById('coverPhoto').style.backgroundImage = `url(${event.target.result})`;
+                    document.getElementById('coverPhoto').style.backgroundSize = 'cover';
+                    document.getElementById('coverPhoto').style.backgroundPosition = 'center';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 
 </html>

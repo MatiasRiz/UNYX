@@ -9,81 +9,162 @@
 </head>
 
 <body>
-  <!-- NAV -->
+  <!-- NAV SUPERIOR (Solo Logo y Búsqueda móvil si fuera necesario) -->
   <header class="unyx-header">
     <div class="unyx-logo">
       <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="UNYX Logo">
     </div>
-
-    <nav class="unyx-nav">
-      <a href="{{ url_for('feed') }}" class="nav-link">Inicio</a>
-      <a href="#" class="nav-link">Explorar</a>
-      <a href="#" class="nav-link">Mensajes</a>
-      <a href="#" class="nav-link">Notificaciones</a>
-      <a href="{{ url_for('profile') }}" class="nav-link">Perfil</a>
-    </nav>
   </header>
-
 
   <div class="container">
 
-    <!-- Panel izquierdo (antes derecho) -->
+    <!-- COLUMNA IZQUIERDA: Navegación y Perfil -->
     <aside class="left-panel">
-      <div class="suggestions">
-        <h3>Sugerencias para ti</h3>
-        <ul>
-          <li><img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Usuario 1"> Usuario 1</li>
-          <li><img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2"> Usuario 2</li>
-          <li><img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="Usuario 3"> Usuario 3</li>
-        </ul>
+      <nav class="side-nav">
+        <a href="{{ url_for('feed') }}" class="nav-item active">
+          <span class="icon">🏠</span> Inicio
+        </a>
+        <a href="#" class="nav-item">
+          <span class="icon">🔍</span> Explorar
+        </a>
+        <a href="#" class="nav-item">
+          <span class="icon">📩</span> Mensajes
+        </a>
+        <a href="#" class="nav-item">
+          <span class="icon">🔔</span> Notificaciones
+        </a>
+        <a href="{{ url_for('profile') }}" class="nav-item">
+          <span class="icon">👤</span> Perfil
+        </a>
+        <a href="{{ url_for('logout') }}" class="nav-item logout-btn">
+          <span class="icon">🚪</span> Cerrar Sesión
+        </a>
+      </nav>
+
+      <div class="mini-profile-card">
+        <div class="mini-profile-info">
+          <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Tu Perfil">
+          <div class="texts">
+            <strong>MatiasRiz</strong>
+            <span>@matiasriz</span>
+          </div>
+        </div>
       </div>
     </aside>
 
-    <!-- Contenido central -->
+    <!-- COLUMNA CENTRAL: Feed -->
     <main class="main-feed">
 
-      <!-- Barra de búsqueda -->
+      <!-- Historias (Arriba para mejor UX) -->
+      <div class="stories-bar">
+        <div class="story add-story">
+          <div class="plus">+</div>
+          <span>Tu Historia</span>
+        </div>
+        <div class="story">
+          <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2">
+          <span>Usuario 2</span>
+        </div>
+        <div class="story">
+          <img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="Usuario 3">
+          <span>Usuario 3</span>
+        </div>
+        <div class="story">
+          <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Usuario 1">
+          <span>Usuario 1</span>
+        </div>
+      </div>
+
+      <!-- Barra de búsqueda (Integrada en el feed) -->
       <div class="search-bar">
-        <input type="text" placeholder="Buscar usuarios...">
+        <input type="text" placeholder="¿Qué está pasando?">
       </div>
 
       <!-- Feed de publicaciones -->
       <div class="feed">
         <div class="post">
           <div class="post-header">
-            <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Usuario 1" class="post-profile">
-            <span class="post-username">Usuario 1</span>
+            <div class="user-info">
+              <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Usuario 1" class="post-profile">
+              <div>
+                <span class="post-username">Usuario 1</span>
+                <span class="post-time">2h</span>
+              </div>
+            </div>
+            <button class="more-options">•••</button>
           </div>
           <div class="post-content">
-            <img src="{{ url_for('static', filename='img/publicacion1.jpg') }}" alt="Publicación 1">
+            <p>Entrenando duro hoy 💪 #GymLife #UNYX</p>
+            <div class="image-container">
+              <img src="{{ url_for('static', filename='img/publicacion1.jpg') }}" alt="Publicación 1">
+            </div>
+          </div>
+          <div class="post-actions">
+            <button class="action-btn">❤️ <span>1.2k</span></button>
+            <button class="action-btn">💬 <span>45</span></button>
+            <button class="action-btn">🚀 <span>Compartir</span></button>
           </div>
         </div>
 
         <div class="post">
           <div class="post-header">
-            <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2" class="post-profile">
-            <span class="post-username">Usuario 2</span>
+            <div class="user-info">
+              <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2" class="post-profile">
+              <div>
+                <span class="post-username">Usuario 2</span>
+                <span class="post-time">5h</span>
+              </div>
+            </div>
+            <button class="more-options">•••</button>
           </div>
           <div class="post-content">
-            <p>Texto o imagen de la publicación...</p>
+            <p>Disfrutando de la vista 🌃</p>
           </div>
-        </div>
-      </div>
-
-      <!-- Historias (ahora abajo) -->
-      <div class="stories-bar">
-        <div class="story">
-          <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Usuario 1">
-        </div>
-        <div class="story">
-          <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2">
-        </div>
-        <div class="story">
-          <img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="Usuario 3">
+          <div class="post-actions">
+            <button class="action-btn">❤️ <span>850</span></button>
+            <button class="action-btn">💬 <span>20</span></button>
+            <button class="action-btn">🚀 <span>Compartir</span></button>
+          </div>
         </div>
       </div>
 
     </main>
+
+    <!-- COLUMNA DERECHA: Sugerencias -->
+    <aside class="right-panel">
+      <div class="suggestions">
+        <h3>Sugerencias para ti</h3>
+        <ul>
+          <li>
+            <div class="sugg-user">
+              <img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="Usuario 3">
+              <div>
+                <strong>Usuario 3</strong>
+                <small>Nuevo en UNYX</small>
+              </div>
+            </div>
+            <button class="follow-btn">Seguir</button>
+          </li>
+          <li>
+            <div class="sugg-user">
+              <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2">
+              <div>
+                <strong>Usuario 2</strong>
+                <small>Te sigue</small>
+              </div>
+            </div>
+            <button class="follow-btn">Seguir</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Términos</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Cookies</a>
+        <span>© 2025 UNYX</span>
+      </div>
+    </aside>
 
   </div>
 

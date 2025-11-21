@@ -1,30 +1,26 @@
-/* ===== UNYX Profile HYPER-PREMIUM Styles ===== */
-/* Hereda estilos base de feed.css, pero sobreescribe específicos */
+/* ===== UNYX Profile Styles ===== */
 
-.profile-container {
-    flex-direction: column;
-    max-width: 1000px;
-    margin-top: 20px;
+.profile-main {
+    max-width: 100%;
 }
 
-/* Cabecera del Perfil */
 .profile-header {
-    background: #0a0a0a;
-    border: 1px solid #222;
-    border-radius: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
     overflow: hidden;
-    margin-bottom: 30px;
-    position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .cover-photo {
-    height: 280px;
-    background: linear-gradient(45deg, #111, #222);
-    background-image: url('https://via.placeholder.com/1200x400/111/D4AF37?text=UNYX+PREMIUM');
+    height: 200px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    background-image: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1), transparent 50%);
     background-size: cover;
     background-position: center;
     position: relative;
+    cursor: pointer;
 }
 
 .cover-photo::after {
@@ -34,159 +30,210 @@
     left: 0;
     width: 100%;
     height: 50%;
-    background: linear-gradient(to top, #0a0a0a, transparent);
+    background: linear-gradient(to top, var(--card-bg), transparent);
+}
+
+.cover-photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 5;
+}
+
+.cover-photo:hover .cover-photo-overlay {
+    opacity: 1;
+}
+
+.btn-change-cover {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--gold-mid);
+    color: var(--gold-mid);
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    backdrop-filter: blur(10px);
+}
+
+.btn-change-cover:hover {
+    background: var(--gold-mid);
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-change-cover .icon {
+    font-size: 1.1rem;
 }
 
 .profile-info-bar {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 0 40px;
-    margin-top: -75px;
-    /* Avatar sube más */
+    padding: 0 25px;
+    margin-top: -60px;
     position: relative;
     z-index: 10;
 }
 
 .avatar-container {
-    padding: 6px;
-    background: #0a0a0a;
+    padding: 4px;
+    background: var(--card-bg);
     border-radius: 50%;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
 .profile-avatar {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 4px solid var(--gold-mid);
+    border: 3px solid var(--gold-mid);
     object-fit: cover;
     transition: transform 0.3s;
 }
 
 .profile-avatar:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 .profile-actions {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 .btn-edit-profile {
     background: transparent;
     border: 1px solid var(--gold-mid);
     color: var(--gold-mid);
-    padding: 10px 24px;
-    border-radius: 30px;
+    padding: 8px 20px;
+    border-radius: 25px;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 600;
     font-family: 'Outfit', sans-serif;
-    letter-spacing: 1px;
-    transition: all 0.3s;
-    text-transform: uppercase;
-    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+    font-size: 0.9rem;
 }
 
 .btn-edit-profile:hover {
     background: var(--gold-mid);
     color: #000;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .btn-settings {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #333;
+    border: 1px solid var(--border-subtle);
     color: #ccc;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
+    transition: all 0.2s;
+    font-size: 1.1rem;
 }
 
 .btn-settings:hover {
-    background: #fff;
-    color: #000;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--gold-mid);
 }
 
-/* Bio y Stats */
 .profile-bio-section {
-    padding: 20px 40px 40px 40px;
+    padding: 15px 25px 25px 25px;
 }
 
 .profile-name {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: #fff;
     margin-bottom: 5px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -0.5px;
 }
 
 .verified-badge {
     color: var(--gold-mid);
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-left: 5px;
-    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4));
 }
 
 .profile-handle {
-    color: #888;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    font-size: 1rem;
 }
 
 .profile-bio {
-    max-width: 700px;
+    max-width: 100%;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #ddd;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
 }
 
 .profile-stats {
     display: flex;
-    gap: 40px;
-    border-top: 1px solid #222;
-    padding-top: 25px;
+    gap: 30px;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 20px;
 }
 
 .profile-stats span {
-    color: #888;
-    font-size: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.profile-stats span:hover {
+    color: #fff;
 }
 
 .profile-stats strong {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-right: 5px;
 }
 
-/* Contenido / Grilla */
 .content-tabs {
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid #222;
-    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 20px;
+    gap: 5px;
 }
 
 .tab {
     background: none;
     border: none;
-    color: #666;
-    padding: 15px 40px;
+    color: var(--text-muted);
+    padding: 15px 30px;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     border-bottom: 2px solid transparent;
-    transition: all 0.3s;
+    transition: all 0.2s;
     font-family: 'Outfit', sans-serif;
 }
 
@@ -202,24 +249,24 @@
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 15px;
 }
 
 .grid-item {
     aspect-ratio: 1 / 1;
-    background: #151515;
+    background: #0a0a0a;
     overflow: hidden;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s;
-    border: 1px solid #222;
+    transition: all 0.2s;
+    border: 1px solid var(--border-subtle);
     position: relative;
 }
 
 .grid-item:hover {
     transform: scale(1.02);
     border-color: var(--gold-mid);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     z-index: 5;
 }
 
@@ -230,15 +277,53 @@
 }
 
 .grid-item.placeholder {
-    background: #111;
+    background: #0a0a0a;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #333;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .grid-item.placeholder::before {
     content: '📷';
-    opacity: 0.3;
+    opacity: 0.2;
+}
+
+@media (max-width: 1100px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-info-bar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .profile-actions {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .profile-bio-section {
+        text-align: center;
+    }
+
+    .profile-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .posts-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+
+    .grid-item {
+        border-radius: 4px;
+    }
 }
