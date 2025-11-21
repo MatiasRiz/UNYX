@@ -80,13 +80,13 @@ registroForm.addEventListener("submit", function(e) {
 
   // Si todo está correcto
   alert("Registro exitoso. Bienvenido a UNYX.");
-  window.location.href = "index.html"; // Redirige a la página principal
+  window.location.href = "../frontend/login.html"; // Redirige al login
 });
 // Datos de ejemplo de historias
 const stories = [
-  { username: "Usuario 1", image: "img/historia1.jpg" },
-  { username: "Usuario 2", image: "img/historia2.jpg" },
-  { username: "Usuario 3", image: "img/historia3.jpg" }
+  { username: "Usuario 1", image: "..img/historia1.jpg" },
+  { username: "Usuario 2", image: "..img/historia2.jpg" },
+  { username: "Usuario 3", image: "..img/historia3.jpg" }
 ];
 
 let currentStoryIndex = 0;
