@@ -9,7 +9,6 @@
 </head>
 
 <body>
-  <!-- NAV SUPERIOR (Solo Logo y Búsqueda móvil si fuera necesario) -->
   <header class="unyx-header">
     <div class="unyx-logo">
       <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="UNYX Logo">
@@ -17,8 +16,6 @@
   </header>
 
   <div class="container">
-
-    <!-- COLUMNA IZQUIERDA: Navegación y Perfil -->
     <aside class="left-panel">
       <nav class="side-nav">
         <a href="{{ url_for('feed') }}" class="nav-item active">
@@ -33,15 +30,12 @@
         <a href="#" class="nav-item">
           <span class="icon">🔔</span> Notificaciones
         </a>
-        <a href="{{ url_for('profile') }}" class="nav-item">
-          <span class="icon">👤</span> Perfil
-        </a>
         <a href="{{ url_for('logout') }}" class="nav-item logout-btn">
           <span class="icon">🚪</span> Cerrar Sesión
         </a>
       </nav>
 
-      <div class="mini-profile-card">
+      <a href="{{ url_for('profile') }}" class="mini-profile-card">
         <div class="mini-profile-info">
           <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Tu Perfil">
           <div class="texts">
@@ -49,13 +43,10 @@
             <span>@matiasriz</span>
           </div>
         </div>
-      </div>
+      </a>
     </aside>
 
-    <!-- COLUMNA CENTRAL: Feed -->
     <main class="main-feed">
-
-      <!-- Historias (Arriba para mejor UX) -->
       <div class="stories-bar">
         <div class="story add-story">
           <div class="plus">+</div>
@@ -75,12 +66,10 @@
         </div>
       </div>
 
-      <!-- Barra de búsqueda (Integrada en el feed) -->
       <div class="search-bar">
         <input type="text" placeholder="¿Qué está pasando?">
       </div>
 
-      <!-- Feed de publicaciones -->
       <div class="feed">
         <div class="post">
           <div class="post-header">
@@ -127,10 +116,8 @@
           </div>
         </div>
       </div>
-
     </main>
 
-    <!-- COLUMNA DERECHA: Sugerencias -->
     <aside class="right-panel">
       <div class="suggestions">
         <h3>Sugerencias para ti</h3>
@@ -165,7 +152,6 @@
         <span>© 2025 UNYX</span>
       </div>
     </aside>
-
   </div>
 
 </body>

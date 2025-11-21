@@ -7,7 +7,6 @@
   --gold-dark: #8a6e1e;
   --bg-deep: #000000;
   --card-bg: #080808;
-  /* Fondo un poco más claro que el body */
   --border-subtle: rgba(255, 255, 255, 0.08);
   --gold-subtle: rgba(212, 175, 55, 0.4);
   --text-muted: #888;
@@ -23,13 +22,11 @@ body {
   font-family: 'Outfit', sans-serif;
   background-color: var(--bg-deep);
   color: #fff;
-  /* Fondo mucho más sutil */
   background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.05), transparent 40%);
   background-attachment: fixed;
   min-height: 100vh;
 }
 
-/* ===== Header Minimalista ===== */
 .unyx-header {
   position: sticky;
   top: 0;
@@ -41,7 +38,6 @@ body {
   padding: 10px 0;
   display: flex;
   justify-content: center;
-  /* Logo centrado en móvil, o parte del layout en desktop */
 }
 
 .unyx-logo img {
@@ -49,20 +45,16 @@ body {
   filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
 }
 
-/* ===== Layout Grid de 3 Columnas ===== */
 .container {
   display: grid;
   grid-template-columns: 280px 600px 300px;
-  /* Izquierda - Centro - Derecha */
   gap: 30px;
   max-width: 1250px;
   margin: 20px auto;
   padding: 0 20px;
   align-items: start;
-  /* Para que las columnas laterales no se estiren */
 }
 
-/* ===== Columna Izquierda (Navegación) ===== */
 .left-panel {
   position: sticky;
   top: 80px;
@@ -107,7 +99,6 @@ body {
   color: var(--gold-mid);
 }
 
-/* Botón de Cerrar Sesión */
 .nav-item.logout-btn {
   margin-top: 20px;
   color: #ff6b6b;
@@ -129,10 +120,17 @@ body {
   align-items: center;
   cursor: pointer;
   transition: background 0.2s;
+  text-decoration: none;
+  color: inherit;
 }
 
 .mini-profile-card:hover {
   background: rgba(255, 255, 255, 0.08);
+}
+
+.mini-profile-card.active-profile {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--gold-mid);
 }
 
 .mini-profile-info {
@@ -159,20 +157,17 @@ body {
   font-size: 0.8rem;
 }
 
-/* ===== Columna Central (Feed) ===== */
 .main-feed {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Historias */
 .stories-bar {
   display: flex;
   gap: 15px;
   overflow-x: auto;
   padding: 15px 0;
-  /* Scroll oculto pero funcional */
   scrollbar-width: none;
 }
 
@@ -229,7 +224,6 @@ body {
   margin-bottom: 5px;
 }
 
-/* Barra de Búsqueda (Input simple) */
 .search-bar input {
   width: 100%;
   padding: 15px 20px;
@@ -247,13 +241,11 @@ body {
   background: #000;
 }
 
-/* Publicaciones */
 .post {
   background: var(--card-bg);
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   overflow: hidden;
-  /* Sombra muy sutil */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -309,7 +301,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Altura máxima controlada */
   max-height: 600px;
   overflow: hidden;
 }
@@ -319,7 +310,6 @@ body {
   height: auto;
   max-height: 600px;
   object-fit: contain;
-  /* Clave para que se vea completa sin cortar */
 }
 
 .post-actions {
@@ -346,7 +336,6 @@ body {
   color: var(--gold-mid);
 }
 
-/* ===== Columna Derecha (Sugerencias) ===== */
 .right-panel {
   position: sticky;
   top: 80px;
@@ -439,11 +428,9 @@ body {
   text-decoration: underline;
 }
 
-/* ===== Responsividad ===== */
 @media (max-width: 1100px) {
   .container {
     grid-template-columns: 80px 1fr 250px;
-    /* Nav colapsada */
   }
 
   .nav-item span:not(.icon),
@@ -469,7 +456,6 @@ body {
 @media (max-width: 900px) {
   .container {
     grid-template-columns: 80px 1fr;
-    /* Ocultar derecha */
   }
 
   .right-panel {
@@ -486,7 +472,6 @@ body {
 
   .left-panel {
     display: none;
-    /* Nav inferior en móvil (futuro) */
   }
 
   .unyx-header {

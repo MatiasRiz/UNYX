@@ -1,0 +1,64 @@
+<!-- Modal de Edición de Perfil -->
+<div id="editProfileModal" class="edit-modal">
+    <div class="edit-modal-content">
+        <div class="edit-modal-header">
+            <h2>Editar perfil</h2>
+            <button class="close-modal" onclick="closeEditModal()">✕</button>
+        </div>
+
+        <div class="edit-modal-body">
+            <!-- Sección de foto de perfil -->
+            <div class="edit-section">
+                <h3>Foto de perfil</h3>
+                <div class="avatar-edit-container">
+                    <div class="avatar-preview" id="avatarPreviewContainer">
+                        <img id="previewAvatar" src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Preview">
+                    </div>
+                    <div class="avatar-controls">
+                        <label for="avatar-upload" class="btn-upload-avatar">
+                            📷 Cambiar foto
+                        </label>
+                        <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+
+                        <div class="zoom-control" id="zoomControl" style="display: none;">
+                            <label>Ajustar zoom:</label>
+                            <input type="range" id="zoomSlider" min="100" max="200" value="100">
+                            <small style="color: #888; font-size: 0.85rem; margin-top: 5px;">💡 Arrastra la foto
+                                para reposicionarla</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de información -->
+            <div class="edit-section">
+                <h3>Información del perfil</h3>
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="editName" value="Usuario Demo" placeholder="Tu nombre">
+                </div>
+
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" id="editUsername" value="usuario_demo" placeholder="usuario">
+                </div>
+
+                <div class="form-group">
+                    <label>Biografía</label>
+                    <textarea id="editBio" rows="3"
+                        placeholder="Cuéntanos sobre ti">Creador de contenido digital. Amante del arte y la tecnología. 🎨✨ #UNYX</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="edit-modal-footer">
+            <button class="btn-cancel" onclick="closeEditModal()">Cancelar</button>
+            <button class="btn-save" onclick="saveProfile()">Guardar cambios</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para ampliar foto de perfil -->
+<div id="avatarModal" class="avatar-modal">
+    <img id="modalAvatar" class="modal-avatar-img">
+</div>

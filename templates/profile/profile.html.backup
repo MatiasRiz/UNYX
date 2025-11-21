@@ -7,7 +7,6 @@
     <title>Mi Perfil - UNYX</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
-    <script src="{{ url_for('static', filename='js/profile-edit.js') }}" defer></script>
 </head>
 
 <body>
@@ -139,8 +138,6 @@
             </div>
         </aside>
     </div>
-
-    {% include 'profile/modals.html' %}
 
     <script>
         // Script para cambiar la foto de portada
