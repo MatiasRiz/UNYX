@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar - UNYX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/explore.css') }}">
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="ambient-bg"></div>
+
+    <!-- Global Header (Consistent with Feed) -->
+    <header class="unyx-header">
+        <div class="unyx-logo">
+            <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="UNYX Logo">
+        </div>
+    </header>
+
+    <!-- Main Container with Custom Layout for Explore -->
+    <div class="container explore-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="left-panel">
+            <nav class="side-nav">
+                <a href="{{ url_for('feed') }}" class="nav-item">
+                    <img src="{{ url_for('static', filename='img/Inicio.png') }}" class="nav-icon" alt="Inicio">
+                    <span>Inicio</span>
+                </a>
+                <a href="{{ url_for('explore') }}" class="nav-item active">
+                    <img src="{{ url_for('static', filename='img/Explore.png') }}" class="nav-icon" alt="Explorar">
+                    <span>Explorar</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="{{ url_for('static', filename='img/Mensajes.png') }}" class="nav-icon" alt="Mensajes">
+                    <span>Mensajes</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="{{ url_for('static', filename='img/Notificaciones.png') }}" class="nav-icon"
+                        alt="Notificaciones">
+                    <span>Notificaciones</span>
+                </a>
+                <a href="{{ url_for('logout') }}" class="nav-item logout-btn">
+                    <img src="{{ url_for('static', filename='img/Cerrar sesion.png') }}" class="nav-icon"
+                        alt="Cerrar Sesión">
+                    <span>Cerrar Sesión</span>
+                </a>
+            </nav>
+
+            <a href="{{ url_for('profile') }}" class="mini-profile-card">
+                <div class="mini-profile-info">
+                    <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Tu Perfil">
+                    <div class="texts">
+                        <strong>MatiasRiz</strong>
+                        <span>@matiasriz</span>
+                    </div>
+                </div>
+            </a>
+        </aside>
+
+        <!-- Main Explore Content -->
+        <main class="explore-main">
+
+            <!-- Sticky Header with Search & Filters -->
+            <header class="explore-header">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Buscar en UNYX..." class="search-input">
+                </div>
+
+                <div class="filters-container" id="filtersBar">
+                    <button class="filter-chip active">Para ti</button>
+                    <button class="filter-chip">Tendencias</button>
+                    <button class="filter-chip">Arte Digital</button>
+                    <button class="filter-chip">Fotografía</button>
+                    <button class="filter-chip">Música</button>
+                    <button class="filter-chip">Tecnología</button>
+                    <button class="filter-chip">Estilo de Vida</button>
+                </div>
+            </header>
+
+            <!-- Hero Section (Featured) -->
+            <section class="hero-section">
+                <div class="hero-card">
+                    <img src="{{ url_for('static', filename='img/publicacion1.jpg') }}" alt="Featured" class="hero-bg">
+                    <div class="hero-content">
+                        <span class="badge">🔥 Tendencia Global</span>
+                        <h2>El Renacimiento Digital</h2>
+                        <p>Descubre a los artistas que están redefiniendo el arte moderno.</p>
+                        <button class="btn-primary">Ver Colección</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Masonry Grid -->
+            <div class="masonry-grid">
+                <!-- Item 1 -->
+                <div class="masonry-item">
+                    <img src="{{ url_for('static', filename='img/publicacion1.jpg') }}" alt="Art">
+                    <div class="item-overlay">
+                        <div class="item-top">
+                            <button class="like-btn">❤️</button>
+                        </div>
+                        <div class="item-bottom">
+                            <div class="user-badge">
+                                <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="User">
+                                <span>NeonArtist</span>
+                            </div>
+                            <div class="stats">
+                                <span>❤️ 1.2k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="masonry-item tall">
+                    <img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="Portrait">
+                    <div class="item-overlay">
+                        <div class="item-top">
+                            <button class="like-btn">❤️</button>
+                        </div>
+                        <div class="item-bottom">
+                            <div class="user-badge">
+                                <img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="User">
+                                <span>PhotoMaster</span>
+                            </div>
+                            <div class="stats">
+                                <span>❤️ 856</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="masonry-item">
+                    <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Tech">
+                    <div class="item-overlay">
+                        <div class="item-top">
+                            <button class="like-btn">❤️</button>
+                        </div>
+                        <div class="item-bottom">
+                            <div class="user-badge">
+                                <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="User">
+                                <span>TechGuru</span>
+                            </div>
+                            <div class="stats">
+                                <span>❤️ 2.1k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More items for demo -->
+                <div class="masonry-item tall">
+                    <div class="placeholder-content"
+                        style="height: 350px; background: linear-gradient(45deg, #1a1a1a, #000);"></div>
+                </div>
+                <div class="masonry-item">
+                    <div class="placeholder-content"
+                        style="height: 200px; background: linear-gradient(45deg, #1a1a1a, #000);"></div>
+                </div>
+                <div class="masonry-item">
+                    <div class="placeholder-content"
+                        style="height: 250px; background: linear-gradient(45deg, #1a1a1a, #000);"></div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="caption"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/explore.js') }}"></script>
+</body>
+
+</html>

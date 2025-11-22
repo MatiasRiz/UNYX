@@ -21,26 +21,30 @@
         <aside class="left-panel">
             <nav class="side-nav">
                 <a href="{{ url_for('feed') }}" class="nav-item">
-                    <span class="icon">🏠</span> Inicio
+                    <img src="{{ url_for('static', filename='img/Inicio.png') }}" class="nav-icon" alt="Inicio">
+                    <span>Inicio</span>
+                </a>
+                <a href="{{ url_for('explore') }}" class="nav-item">
+                    <img src="{{ url_for('static', filename='img/Explore.png') }}" class="nav-icon" alt="Explorar">
+                    <span>Explorar</span>
                 </a>
                 <a href="#" class="nav-item">
-                    <span class="icon">🔍</span> Explorar
+                    <img src="{{ url_for('static', filename='img/Mensajes.png') }}" class="nav-icon" alt="Mensajes">
+                    <span>Mensajes</span>
                 </a>
                 <a href="#" class="nav-item">
-                    <span class="icon">📩</span> Mensajes
-                </a>
-                <a href="#" class="nav-item">
-                    <span class="icon">🔔</span> Notificaciones
-                </a>
-                <a href="{{ url_for('profile') }}" class="nav-item active">
-                    <span class="icon">👤</span> Perfil
+                    <img src="{{ url_for('static', filename='img/Notificaciones.png') }}" class="nav-icon"
+                        alt="Notificaciones">
+                    <span>Notificaciones</span>
                 </a>
                 <a href="{{ url_for('logout') }}" class="nav-item logout-btn">
-                    <span class="icon">🚪</span> Cerrar Sesión
+                    <img src="{{ url_for('static', filename='img/Cerrar sesion.png') }}" class="nav-icon"
+                        alt="Cerrar Sesión">
+                    <span>Cerrar Sesión</span>
                 </a>
             </nav>
 
-            <div class="mini-profile-card">
+            <a href="{{ url_for('profile') }}" class="mini-profile-card">
                 <div class="mini-profile-info">
                     <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Tu Perfil">
                     <div class="texts">
@@ -48,10 +52,11 @@
                         <span>@matiasriz</span>
                     </div>
                 </div>
-            </div>
+            </a>
         </aside>
 
         <main class="main-feed profile-main">
+            <!-- Profile Header -->
             <div class="profile-header">
                 <div class="cover-photo" id="coverPhoto">
                     <div class="cover-photo-overlay">
@@ -86,12 +91,14 @@
                 </div>
             </div>
 
+            <!-- Content Tabs -->
             <div class="content-tabs">
                 <button class="tab active">Publicaciones</button>
                 <button class="tab">Videos</button>
                 <button class="tab">Guardados</button>
             </div>
 
+            <!-- Posts Grid -->
             <div class="posts-grid">
                 <div class="grid-item">
                     <img src="{{ url_for('static', filename='img/publicacion1.jpg') }}" alt="Post 1">

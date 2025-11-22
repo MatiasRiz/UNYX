@@ -19,19 +19,24 @@
     <aside class="left-panel">
       <nav class="side-nav">
         <a href="{{ url_for('feed') }}" class="nav-item active">
-          <span class="icon">🏠</span> Inicio
+          <img src="{{ url_for('static', filename='img/Inicio.png') }}" class="nav-icon" alt="Inicio">
+          <span>Inicio</span>
+        </a>
+        <a href="{{ url_for('explore') }}" class="nav-item">
+          <img src="{{ url_for('static', filename='img/Explore.png') }}" class="nav-icon" alt="Explorar">
+          <span>Explorar</span>
         </a>
         <a href="#" class="nav-item">
-          <span class="icon">🔍</span> Explorar
+          <img src="{{ url_for('static', filename='img/Mensajes.png') }}" class="nav-icon" alt="Mensajes">
+          <span>Mensajes</span>
         </a>
         <a href="#" class="nav-item">
-          <span class="icon">📩</span> Mensajes
-        </a>
-        <a href="#" class="nav-item">
-          <span class="icon">🔔</span> Notificaciones
+          <img src="{{ url_for('static', filename='img/Notificaciones.png') }}" class="nav-icon" alt="Notificaciones">
+          <span>Notificaciones</span>
         </a>
         <a href="{{ url_for('logout') }}" class="nav-item logout-btn">
-          <span class="icon">🚪</span> Cerrar Sesión
+          <img src="{{ url_for('static', filename='img/Cerrar sesion.png') }}" class="nav-icon" alt="Cerrar Sesión">
+          <span>Cerrar Sesión</span>
         </a>
       </nav>
 

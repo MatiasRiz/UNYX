@@ -73,20 +73,21 @@ body {
 .nav-item {
   display: flex;
   align-items: center;
+  gap: 15px;
   padding: 12px 20px;
   color: #ccc;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
   border-radius: 30px;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
 }
 
-.nav-item .icon {
-  margin-right: 15px;
-  font-size: 1.4rem;
-  width: 30px;
-  text-align: center;
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .nav-item:hover {
@@ -94,9 +95,19 @@ body {
   color: var(--gold-mid);
 }
 
+.nav-item:hover .nav-icon {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 5px var(--gold-mid));
+}
+
 .nav-item.active {
   font-weight: 700;
   color: var(--gold-mid);
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px var(--gold-mid));
 }
 
 .nav-item.logout-btn {
@@ -433,7 +444,7 @@ body {
     grid-template-columns: 80px 1fr 250px;
   }
 
-  .nav-item span:not(.icon),
+  .nav-item span:not(.nav-icon),
   .mini-profile-info .texts {
     display: none;
   }
@@ -448,7 +459,7 @@ body {
     padding: 12px;
   }
 
-  .nav-item .icon {
+  .nav-icon {
     margin: 0;
   }
 }

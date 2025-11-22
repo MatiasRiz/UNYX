@@ -18,6 +18,11 @@ def feed():
     return render_template('feed/index.html')
 
 
+@app.route('/explore')
+def explore():
+    return render_template('explore/index.html')
+
+
 @app.route('/profile')
 def profile():
     return render_template('profile/profile.html')
