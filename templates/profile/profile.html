@@ -46,10 +46,10 @@
 
             <a href="{{ url_for('profile') }}" class="mini-profile-card">
                 <div class="mini-profile-info">
-                    <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Tu Perfil">
+                    <img src="{{ user_profile.avatar_url or url_for('static', filename='img/perfil1.jpg') }}" alt="Tu Perfil">
                     <div class="texts">
-                        <strong>MatiasRiz</strong>
-                        <span>@matiasriz</span>
+                        <strong>{{ user_profile.display_name }}</strong>
+                        <span>@{{ user_profile.username }}</span>
                     </div>
                 </div>
             </a>
@@ -69,7 +69,7 @@
 
                 <div class="profile-info-bar">
                     <div class="avatar-container">
-                        <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Mi Avatar"
+                        <img src="{{ user_profile.avatar_url or url_for('static', filename='img/perfil1.jpg') }}" alt="Mi Avatar"
                             class="profile-avatar">
                     </div>
                     <div class="profile-actions">
@@ -79,14 +79,14 @@
                 </div>
 
                 <div class="profile-bio-section">
-                    <h1 class="profile-name">Usuario Demo <span class="verified-badge">✔</span></h1>
-                    <p class="profile-handle">@usuario_demo</p>
-                    <p class="profile-bio">Creador de contenido digital. Amante del arte y la tecnología. 🎨✨ #UNYX</p>
+                    <h1 class="profile-name">{{ user_profile.display_name }} <span class="verified-badge">✔</span></h1>
+                    <p class="profile-handle">@{{ user_profile.username }}</p>
+                    <p class="profile-bio">{{ user_profile.bio or 'Sin biografía' }}</p>
 
                     <div class="profile-stats">
-                        <span><strong>120</strong> Publicaciones</span>
-                        <span><strong>1.5k</strong> Seguidores</span>
-                        <span><strong>300</strong> Seguidos</span>
+                        <span><strong>{{ user_profile.posts_count }}</strong> Publicaciones</span>
+                        <span><strong>{{ user_profile.followers_count }}</strong> Seguidores</span>
+                        <span><strong>{{ user_profile.following_count }}</strong> Seguidos</span>
                     </div>
                 </div>
             </div>
@@ -100,14 +100,19 @@
 
             <!-- Posts Grid -->
             <div class="posts-grid">
-                <div class="grid-item">
-                    <img src="{{ url_for('static', filename='img/publicacion1.jpg') }}" alt="Post 1">
-                </div>
-                <div class="grid-item placeholder"></div>
-                <div class="grid-item placeholder"></div>
-                <div class="grid-item placeholder"></div>
-                <div class="grid-item placeholder"></div>
-                <div class="grid-item placeholder"></div>
+                {% if user_posts %}
+                    {% for post in user_posts %}
+                        {% if post.image_url %}
+                        <div class="grid-item">
+                            <img src="{{ post.image_url }}" alt="Post {{ loop.index }}">
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <div class="grid-item placeholder"></div>
+                    <div class="grid-item placeholder"></div>
+                    <div class="grid-item placeholder"></div>
+                {% endif %}
             </div>
         </main>
 
@@ -115,26 +120,18 @@
             <div class="suggestions">
                 <h3>Sugerencias para ti</h3>
                 <ul>
+                    {% for user in suggested_users %}
                     <li>
                         <div class="sugg-user">
-                            <img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="Usuario 3">
+                            <img src="{{ user.avatar_url or url_for('static', filename='img/perfil1.jpg') }}" alt="{{ user.display_name }}">
                             <div>
-                                <strong>Usuario 3</strong>
-                                <small>Nuevo en UNYX</small>
+                                <strong>{{ user.display_name }}</strong>
+                                <small>@{{ user.username }}</small>
                             </div>
                         </div>
                         <button class="follow-btn">Seguir</button>
                     </li>
-                    <li>
-                        <div class="sugg-user">
-                            <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2">
-                            <div>
-                                <strong>Usuario 2</strong>
-                                <small>Te sigue</small>
-                            </div>
-                        </div>
-                        <button class="follow-btn">Seguir</button>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
 

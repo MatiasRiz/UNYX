@@ -42,10 +42,10 @@
 
       <a href="{{ url_for('profile') }}" class="mini-profile-card">
         <div class="mini-profile-info">
-          <img src="{{ url_for('static', filename='img/perfil1.jpg') }}" alt="Tu Perfil">
+          <img src="{{ current_user.avatar_url or url_for('static', filename='img/perfil1.jpg') }}" alt="Tu Perfil">
           <div class="texts">
-            <strong>MatiasRiz</strong>
-            <span>@matiasriz</span>
+            <strong>{{ current_user.display_name }}</strong>
+            <span>@{{ current_user.username }}</span>
           </div>
         </div>
       </a>
@@ -127,26 +127,19 @@
       <div class="suggestions">
         <h3>Sugerencias para ti</h3>
         <ul>
+          {% for user in suggested_users %}
           <li>
             <div class="sugg-user">
-              <img src="{{ url_for('static', filename='img/perfil3.jpg') }}" alt="Usuario 3">
+              <img src="{{ user.avatar_url or url_for('static', filename='img/perfil1.jpg') }}"
+                alt="{{ user.display_name }}">
               <div>
-                <strong>Usuario 3</strong>
-                <small>Nuevo en UNYX</small>
+                <strong>{{ user.display_name }}</strong>
+                <small>@{{ user.username }}</small>
               </div>
             </div>
             <button class="follow-btn">Seguir</button>
           </li>
-          <li>
-            <div class="sugg-user">
-              <img src="{{ url_for('static', filename='img/perfil2.jpg') }}" alt="Usuario 2">
-              <div>
-                <strong>Usuario 2</strong>
-                <small>Te sigue</small>
-              </div>
-            </div>
-            <button class="follow-btn">Seguir</button>
-          </li>
+          {% endfor %}
         </ul>
       </div>
 
